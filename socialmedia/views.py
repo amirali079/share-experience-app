@@ -57,4 +57,4 @@ class PostListAPIView(ListAPIView):
 
     def get_queryset(self):
         user = get_object_or_404(get_user_model(), id=self.kwargs['pk'])
-        return user.Posts.all()
+        return user.posts.all()

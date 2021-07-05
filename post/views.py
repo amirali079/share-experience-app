@@ -45,5 +45,9 @@ class CommentListCreateAPIView(ListCreateAPIView):
         context['post'] = get_object_or_404(Post, pk=self.kwargs.get('post_pk'))
         return context
 
+    def get_queryset(self):
+            post = get_object_or_404(Post, id=self.kwargs['post_pk'])
+            return post.comments.all()
+
 
 
