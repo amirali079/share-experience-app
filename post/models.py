@@ -8,7 +8,7 @@ from socialmedia.models import User
 
 
 class Post(models.Model):
-    creator = models.ForeignKey(User, on_delete=models.CASCADE, related_name='polls')
+    creator = models.ForeignKey(User, on_delete=models.CASCADE, related_name='posts')
     created_at = models.DateTimeField(auto_now_add=True)
     title = models.CharField(max_length=200)
     description = models.TextField(blank=False)

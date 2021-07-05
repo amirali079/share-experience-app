@@ -47,9 +47,7 @@ class UserTimelineListAPIView(ListAPIView):
     pagination_class = PostPagination
 
     def get_queryset(self):
-
-        posts = Post.objects.none()
-        return posts | self.request.user.Posts.all()
+        return self.request.user.posts.all()
 
 
 class PostListAPIView(ListAPIView):
