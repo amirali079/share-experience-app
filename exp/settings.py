@@ -37,6 +37,24 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+
+    'django.contrib.sites',
+    'rest_framework',
+    'rest_framework.authtoken',
+    'dj_rest_auth',
+    'allauth',
+    'allauth.account',
+    'allauth.socialaccount',
+    'allauth.socialaccount.providers.google',
+    'dj_rest_auth.registration',
+    'drf_spectacular',
+    'corsheaders',
+    'django_filters',
+
+    'auth',
+    'post'
+    'socialmedia',
+
 ]
 
 MIDDLEWARE = [

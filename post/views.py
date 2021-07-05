@@ -35,7 +35,7 @@ class CommentRetrieveDestroyAPIView(RetrieveDestroyAPIView):
     lookup_url_kwarg = "comment_pk"
 
     def get_queryset(self):
-        post = get_object_or_404(Post, pk=self.kwargs.get('Post_pk'))
+        post = get_object_or_404(Post, pk=self.kwargs.get('post_pk'))
         return post.comments
 
 
@@ -47,7 +47,7 @@ class CommentListCreateAPIView(ListCreateAPIView):
 
     def get_serializer_context(self):
         context = super(CommentListCreateAPIView, self).get_serializer_context()
-        context['Post'] = get_object_or_404(Post, pk=self.kwargs.get('Post_pk'))
+        context['post'] = get_object_or_404(Post, pk=self.kwargs.get('post_pk'))
         return context
 
 
