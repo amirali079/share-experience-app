@@ -7,13 +7,10 @@ class CutsomUserAdmin(UserAdmin):
     fieldsets = UserAdmin.fieldsets + (
         ('Profile', {'fields': (
             'avatar',
-            'cover',
             'bio',
-            'is_public',
             'is_verified',
         )}),
     )
 
 
 admin.site.register(get_user_model(), CutsomUserAdmin)
-#admin.site.register(get_user_model())

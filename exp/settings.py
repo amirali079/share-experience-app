@@ -183,12 +183,16 @@ SOCIALACCOUNT_PROVIDERS = {
 LOGIN_REDIRECT_URL = '/'
 LOGOUT_REDIRECT_URL = '/'
 
-REST_AUTH_REGISTER_SERIALIZERS = {
-    'REGISTER_SERIALIZER': 'exp_auth.serializers.RegisterSerializer',
-}
-REST_AUTH_SERIALIZERS = {
-    'LOGIN_SERIALIZER': 'exp_auth.serializers.LoginSerializer'
-}
+# REST_AUTH_REGISTER_SERIALIZERS = {
+#     'REGISTER_SERIALIZER': 'exp_auth.serializers.RegisterSerializer',
+# }
+# REST_AUTH_SERIALIZERS = {
+#     'LOGIN_SERIALIZER': 'exp_auth.serializers.LoginSerializer'
+#
+# }
+
+
+EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 
 
 SPECTACULAR_SETTINGS = {
