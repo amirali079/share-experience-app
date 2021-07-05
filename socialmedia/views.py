@@ -1,10 +1,9 @@
 from django.contrib.auth import get_user_model
 from django.shortcuts import get_object_or_404
-from rest_framework import filters
 from rest_framework.authtoken.admin import User
 from rest_framework.generics import RetrieveUpdateDestroyAPIView, RetrieveUpdateAPIView, ListAPIView
 from rest_framework.permissions import IsAuthenticated
-
+from post.models import Post
 from post.paginations import PostPagination
 from post.serializers import PostRetrieveSerializer
 from socialmedia.permissons import IsSelfOrReadOnly
@@ -34,10 +33,10 @@ class UserListAPIView(ListAPIView):
     queryset = User.objects.all()
     permission_classes = [IsAuthenticated]
 
-    filter_backends = [filters.SearchFilter]
-    search_fields = ['username', 'first_name', 'last_name']
-
-    #pagination_class = SearchResultsSetPagination
+    #filter_backends = [filters.SearchFilter]
+    # search_fields = ['username', 'first_name', 'last_name']
+    #
+    # pagination_class = SearchResultsSetPagination
 
     serializer_class = UserSummarySerializer
 
@@ -48,10 +47,8 @@ class UserTimelineListAPIView(ListAPIView):
     pagination_class = PostPagination
 
     def get_queryset(self):
-        followings = self.request.user.get_followings().prefetch_related('posts')
+
         posts = Post.objects.none()
-        for following in followings:
-            posts = posts | following.Posts.all()
         return posts | self.request.user.Posts.all()
 
 

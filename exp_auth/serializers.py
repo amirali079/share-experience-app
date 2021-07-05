@@ -3,7 +3,7 @@ from dj_rest_auth.serializers import LoginSerializer as DefaultLoginSerializer
 from rest_framework import serializers
 
 
-class RegisterSerializer( DefaultRegisterSerializer):
+class RegisterSerializer(DefaultRegisterSerializer):
     username = None
     first_name = serializers.CharField(required=True)
     last_name = serializers.CharField(required=False)

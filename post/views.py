@@ -1,20 +1,15 @@
-from datetime import timedelta
-
-from django.db.models import Count
+from django.contrib.auth import get_user_model
 from django.shortcuts import get_object_or_404
-from django.utils import timezone
-from rest_framework import status
-from rest_framework.generics import CreateAPIView, RetrieveDestroyAPIView, ListAPIView, ListCreateAPIView, \
-    RetrieveAPIView
+from rest_framework import filters
+from rest_framework.authtoken.admin import User
+from rest_framework.generics import RetrieveUpdateDestroyAPIView, RetrieveUpdateAPIView, ListAPIView, \
+    RetrieveDestroyAPIView, CreateAPIView, ListCreateAPIView
 from rest_framework.permissions import IsAuthenticated
-from rest_framework.response import Response
-from rest_framework.views import APIView
 
-from socialmedia.models import User
-from .models import Post, Comment
-from .paginations import PostPagination, CommentPagination
-from .permissions import IsCreatorOrReadOnly
-from .serializers import PostCreateSerializer,  PostRetrieveSerializer, CommentSerializer
+from post.models import Post, Comment
+from post.paginations import PostPagination, CommentPagination
+from post.permissions import IsCreatorOrReadOnly
+from post.serializers import PostRetrieveSerializer, PostCreateSerializer, CommentSerializer
 
 
 class PostRetrieveDestroyAPIView(RetrieveDestroyAPIView):

@@ -1,5 +1,6 @@
 from rest_framework import serializers
 from post.models import Post, Comment
+from socialmedia.models import User
 from socialmedia.serializer import UserSummarySerializer
 
 

@@ -16,3 +16,4 @@ class CutsomUserAdmin(UserAdmin):
 
 
 admin.site.register(get_user_model(), CutsomUserAdmin)
+#admin.site.register(get_user_model())

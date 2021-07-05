@@ -1,4 +1,9 @@
+import os
+import uuid
+from datetime import datetime
+from django.core.validators import MaxValueValidator, MinValueValidator
 from django.db import models
+from rest_framework.exceptions import ValidationError
 from socialmedia.models import User
 
 
